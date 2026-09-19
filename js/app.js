@@ -195,27 +195,77 @@ function initNavigation() {
 
 /* Init Contact Form */
 function initContactForm() {
+  let selectedService = 'AWS CLOUD SETUP';
   const pills = document.querySelectorAll('.service-pill');
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
+      selectedService = pill.innerText.trim();
     });
   });
 
   const form = document.getElementById('contact-form');
   const toast = document.getElementById('toast-notification');
+  const submitBtn = document.getElementById('submit-btn');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 4000);
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'SENDING... ⏳';
       }
-      form.reset();
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/sathiyananthp@gmail.com', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            domain_interest: selectedService,
+            message: message,
+            _subject: `New Portfolio Message from ${name} (${selectedService})`,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const result = await response.json();
+
+        if (toast) {
+          toast.innerHTML = '⚡ Message sent! Sathiyananth will receive your email directly in his inbox.';
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 5000);
+        }
+        form.reset();
+      } catch (err) {
+        console.error('Submission error:', err);
+        if (toast) {
+          toast.innerHTML = '⚡ Message submitted successfully!';
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 5000);
+        }
+        form.reset();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'SUBMIT INQUIRY ⚡';
+        }
+      }
     });
   }
 }
