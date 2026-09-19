@@ -6,7 +6,7 @@ const portfolioData = {
     name: "Sathiyananth Periyasamy",
     title: "Cloud & DevOps Engineer",
     subtitle: "Cloud Architect // DevOps Engineer // Linux Specialist",
-    status: "Available for Cloud & DevOps Roles",
+    status: "Available for Cloud, DevOps, Linux & IT Infra Roles",
     phone: "+91 6383035708",
     email: "sathiyananthp@gmail.com",
     linkedin: "https://www.linkedin.com/in/sathiyananth-periyasamy",

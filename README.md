@@ -1,6 +1,6 @@
 # Hi there, I'm Sathiyananth Periyasamy 👋
 
-### ☁️ Cloud & DevOps Engineer | AWS // Infrastructure as Code // CI/CD Pipelines
+### ☁️ Cloud & DevOps Engineer | AWS // Infrastructure as Code // Linux & IT Infra Systems
 
 [![Portfolio](https://img.shields.io/badge/Live_Portfolio-00F2FE?style=for-the-badge&logo=google-chrome&logoColor=black)](https://sathiyananthperiyasamy.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sathiyananth-periyasamy)
