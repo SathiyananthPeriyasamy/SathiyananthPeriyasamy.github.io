@@ -239,6 +239,17 @@ button {
   color: var(--cyan-glow);
 }
 
+.nav-resume-link {
+  color: var(--cyan-glow);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-resume-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--cyan-glow);
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
