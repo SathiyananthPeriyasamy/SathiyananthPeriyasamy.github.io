@@ -193,13 +193,23 @@ function initNavigation() {
 
 /* Init Contact Form */
 function initContactForm() {
-  let selectedService = 'AWS CLOUD SETUP';
+  let selectedService = 'Cloud';
   const pills = document.querySelectorAll('.service-pill');
+  const othersContainer = document.getElementById('others-input-container');
+  const customDomainInput = document.getElementById('custom-domain');
+
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      selectedService = pill.innerText.trim();
+      selectedService = pill.getAttribute('data-domain') || pill.innerText.trim();
+
+      if (selectedService === 'Others') {
+        if (othersContainer) othersContainer.style.display = 'block';
+        if (customDomainInput) customDomainInput.focus();
+      } else {
+        if (othersContainer) othersContainer.style.display = 'none';
+      }
     });
   });
 
@@ -214,6 +224,11 @@ function initContactForm() {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
+
+      let finalDomain = selectedService;
+      if (selectedService === 'Others' && customDomainInput && customDomainInput.value.trim() !== '') {
+        finalDomain = `Others (${customDomainInput.value.trim()})`;
+      }
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -230,9 +245,9 @@ function initContactForm() {
           body: JSON.stringify({
             name: name,
             email: email,
-            domain_interest: selectedService,
+            domain_interest: finalDomain,
             message: message,
-            _subject: `New Portfolio Message from ${name} (${selectedService})`,
+            _subject: `New Portfolio Message from ${name} (${finalDomain})`,
             _template: 'table',
             _captcha: 'false'
           })
@@ -248,6 +263,7 @@ function initContactForm() {
           }, 5000);
         }
         form.reset();
+        if (othersContainer) othersContainer.style.display = 'none';
       } catch (err) {
         console.error('Submission error:', err);
         if (toast) {
@@ -258,6 +274,7 @@ function initContactForm() {
           }, 5000);
         }
         form.reset();
+        if (othersContainer) othersContainer.style.display = 'none';
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
