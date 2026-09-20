@@ -5,12 +5,13 @@ const portfolioData = {
   profile: {
     name: "Sathiyananth Periyasamy",
     title: "Cloud & DevOps Engineer",
-    subtitle: "Cloud Architect // DevOps Engineer // Linux Specialist",
+    subtitle: "Cloud Architect // DevOps Engineer // Linux Enthusiast",
     status: "Available for Cloud, DevOps, Linux & IT Infra Roles",
     phone: "+91 6383035708",
     email: "sathiyananthp@gmail.com",
-    linkedin: "https://www.linkedin.com/in/sathiyananth-periyasamy",
-    github: "https://github.com/sathiyananth-periyasamy",
+    linkedin: "https://www.linkedin.com/in/sathiyananthp",
+    github: "https://github.com/SathiyananthPeriyasamy/SathiyananthPeriyasamy.github.io",
+    instagram: "https://www.instagram.com/iamsathiyananth?stkn=YWJpdzdhOXRneWZ3",
     location: "Tamil Nadu, India",
     summary: `Results-driven DevOps Engineer with hands-on experience building and maintaining CI/CD pipelines, automating infrastructure provisioning, and deploying secure, scalable, and highly available systems on AWS. Proficient in Jenkins, Docker, Kubernetes, Ansible, Terraform, Bash, and Python, with a strong focus on infrastructure automation, system reliability, and delivery optimization. A self-starter who takes ownership end-to-end—from pipeline design to production monitoring and troubleshooting.`
   },
