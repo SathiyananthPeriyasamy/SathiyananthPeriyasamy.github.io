@@ -61,7 +61,7 @@ Results-driven **DevOps Engineer** specializing in building and maintaining **CI
 
 - 📧 **Email**: [sathiyananthp@gmail.com](mailto:sathiyananthp@gmail.com)
 - 📞 **Phone**: +91 6383035708
-- 💼 **LinkedIn**: [linkedin.com/in/sathiyananth-periyasamy](https://www.linkedin.com/in/sathiyananth-periyasamy)
+- 💼 **LinkedIn**: [linkedin.com/in/sathiyananthp](https://www.linkedin.com/in/sathiyananthp)
 - 🌐 **Portfolio**: [sathiyananthperiyasamy.github.io](https://sathiyananthperiyasamy.github.io)
 
 ---
