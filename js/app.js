@@ -57,7 +57,7 @@ function renderProfileInfo() {
   if (contactPhone) contactPhone.innerText = p.phone;
 
   const contactLinkedin = document.getElementById('contact-linkedin-val');
-  if (contactLinkedin) contactLinkedin.innerHTML = `<a href="${p.linkedin}" target="_blank" rel="noopener">linkedin.com/in/sathiyananth-periyasamy</a>`;
+  if (contactLinkedin) contactLinkedin.innerHTML = `<a href="${p.linkedin}" target="_blank" rel="noopener">linkedin.com/in/sathiyananthp</a>`;
 }
 
 /* Render Stats */
