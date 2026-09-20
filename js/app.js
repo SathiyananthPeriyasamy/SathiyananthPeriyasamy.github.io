@@ -10,8 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCertificationsAndEdu();
   initNavigation();
   initContactForm();
+  initScrollAnimations();
   if (typeof initTerminal === 'function') initTerminal();
 });
+
+/* Scroll Animations */
+function initScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-category-card, .project-card, .cert-card, .edu-card, .contact-card-box').forEach(el => {
+    if (!el.classList.contains('reveal') && !el.classList.contains('reveal-left') && !el.classList.contains('reveal-right')) {
+      el.classList.add('reveal');
+    }
+    observer.observe(el);
+  });
+}
 
 /* Render Profile Info */
 function renderProfileInfo() {
@@ -193,25 +219,20 @@ function initNavigation() {
 
 /* Init Contact Form */
 function initContactForm() {
-  let selectedService = 'Cloud';
-  const pills = document.querySelectorAll('.service-pill');
+  const domainSelect = document.getElementById('domain-select');
   const othersContainer = document.getElementById('others-input-container');
   const customDomainInput = document.getElementById('custom-domain');
 
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      selectedService = pill.getAttribute('data-domain') || pill.innerText.trim();
-
-      if (selectedService === 'Others') {
+  if (domainSelect) {
+    domainSelect.addEventListener('change', () => {
+      if (domainSelect.value === 'Others') {
         if (othersContainer) othersContainer.style.display = 'block';
         if (customDomainInput) customDomainInput.focus();
       } else {
         if (othersContainer) othersContainer.style.display = 'none';
       }
     });
-  });
+  }
 
   const form = document.getElementById('contact-form');
   const toast = document.getElementById('toast-notification');
@@ -225,6 +246,7 @@ function initContactForm() {
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
 
+      let selectedService = domainSelect ? domainSelect.value : 'Cloud';
       let finalDomain = selectedService;
       if (selectedService === 'Others' && customDomainInput && customDomainInput.value.trim() !== '') {
         finalDomain = `Others (${customDomainInput.value.trim()})`;
@@ -264,6 +286,7 @@ function initContactForm() {
         }
         form.reset();
         if (othersContainer) othersContainer.style.display = 'none';
+        if (domainSelect) domainSelect.value = 'Cloud';
       } catch (err) {
         console.error('Submission error:', err);
         if (toast) {
@@ -275,6 +298,7 @@ function initContactForm() {
         }
         form.reset();
         if (othersContainer) othersContainer.style.display = 'none';
+        if (domainSelect) domainSelect.value = 'Cloud';
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
