@@ -27,60 +27,60 @@ const portfolioData = {
       category: "Cloud Platform (AWS)",
       icon: "cloud",
       items: [
-        { name: "Amazon EC2", level: "Expert" },
-        { name: "VPC & Subnets", level: "Advanced" },
-        { name: "IAM & Security Groups", level: "Advanced" },
-        { name: "Amazon S3", level: "Advanced" },
-        { name: "ALB / ELB", level: "Advanced" },
-        { name: "Auto Scaling (ASG)", level: "Advanced" },
-        { name: "Amazon RDS", level: "Advanced" },
-        { name: "AWS CloudWatch", level: "Advanced" },
-        { name: "AWS SNS & SQS", level: "Intermediate" },
-        { name: "AWS Lambda", level: "Intermediate" }
+        "Amazon EC2",
+        "VPC & Subnets",
+        "IAM & Security Groups",
+        "Amazon S3",
+        "ALB / ELB",
+        "Auto Scaling (ASG)",
+        "Amazon RDS",
+        "AWS CloudWatch",
+        "AWS SNS & SQS",
+        "AWS Lambda"
       ]
     },
     {
       category: "CI/CD & Automation",
       icon: "git-branch",
       items: [
-        { name: "Jenkins", level: "Expert" },
-        { name: "GitHub Webhooks", level: "Advanced" },
-        { name: "Maven", level: "Advanced" },
-        { name: "Git & GitHub", level: "Expert" }
+        "Jenkins",
+        "GitHub Webhooks",
+        "Maven",
+        "Git & GitHub"
       ]
     },
     {
       category: "Containers & Orchestration",
       icon: "box",
       items: [
-        { name: "Docker", level: "Advanced" },
-        { name: "Kubernetes (k8s)", level: "Intermediate" }
+        "Docker",
+        "Kubernetes (k8s)"
       ]
     },
     {
       category: "Infrastructure as Code (IaC)",
       icon: "code",
       items: [
-        { name: "Terraform", level: "Advanced" },
-        { name: "Ansible", level: "Advanced" }
+        "Terraform",
+        "Ansible"
       ]
     },
     {
       category: "Linux & Networking",
       icon: "terminal",
       items: [
-        { name: "Linux Administration", level: "Advanced" },
-        { name: "Ubuntu & Amazon Linux", level: "Advanced" },
-        { name: "DNS & TCP/IP", level: "Advanced" },
-        { name: "Load Balancers & SSH", level: "Advanced" }
+        "Linux Administration",
+        "Ubuntu & Amazon Linux",
+        "DNS & TCP/IP",
+        "Load Balancers & SSH"
       ]
     },
     {
       category: "Scripting & Languages",
       icon: "file-code",
       items: [
-        { name: "Bash / Shell Scripting", level: "Expert" },
-        { name: "Python", level: "Intermediate" }
+        "Bash / Shell Scripting",
+        "Python"
       ]
     }
   ],

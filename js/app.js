@@ -54,7 +54,7 @@ function renderSkills() {
   if (!container) return;
 
   const iconMap = {
-    cloud: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19px-11.5 0A5.5 5.5 0 0 1 5.3 8.35A7 7 0 0 1 18.9 7.7a4.5 4.5 0 0 1 3.6 4.3 4.5 4.5 0 0 1-5 7z"/></svg>`,
+    cloud: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19x-11.5 0A5.5 5.5 0 0 1 5.3 8.35A7 7 0 0 1 18.9 7.7a4.5 4.5 0 0 1 3.6 4.3 4.5 4.5 0 0 1-5 7z"/></svg>`,
     'git-branch': `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>`,
     box: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
     code: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
@@ -69,12 +69,10 @@ function renderSkills() {
         <h3 class="skill-cat-title">${cat.category}</h3>
       </div>
       <div class="skill-tags-flex">
-        ${cat.items.map(item => `
-          <div class="skill-tag">
-            <span>${item.name}</span>
-            <span class="skill-level-badge">${item.level}</span>
-          </div>
-        `).join('')}
+        ${cat.items.map(item => {
+          const skillName = typeof item === 'string' ? item : item.name;
+          return `<div class="skill-tag"><span>${skillName}</span></div>`;
+        }).join('')}
       </div>
     </div>
   `).join('');
