@@ -1041,6 +1041,13 @@ footer {
   font-family: var(--font-mono);
 }
 
+/* Section Standard */
+.section {
+  padding: 6rem 0;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
 /* ==========================================================================
    Comprehensive Multi-Device Responsive Breakpoints
    ========================================================================== */
@@ -1067,8 +1074,19 @@ footer {
 
 /* Tablets & Small Laptops (769px to 992px) */
 @media (max-width: 992px) {
+  .header-nav {
+    height: 64px !important;
+  }
+  .nav-container {
+    height: 64px !important;
+  }
   .hero-section {
-    padding-top: 8rem;
+    padding-top: 7.5rem !important;
+  }
+  .section {
+    padding-top: 4.5rem !important;
+    padding-bottom: 3.5rem !important;
+    scroll-margin-top: 70px !important;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1086,17 +1104,33 @@ footer {
     display: none !important;
   }
   .mobile-toggle {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
   .project-card {
     padding: 1.75rem;
+  }
+  .mobile-menu {
+    top: 64px !important;
   }
 }
 
 /* Mobile Devices & Small Tablets (481px to 768px) */
 @media (max-width: 768px) {
+  .header-nav {
+    height: 60px !important;
+  }
+  .nav-container {
+    height: 60px !important;
+  }
+  .hero-section {
+    padding-top: 6.5rem !important;
+  }
   .section {
-    padding: 3.5rem 0;
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
+    scroll-margin-top: 65px !important;
   }
   .hero-badge-tag {
     font-size: 0.75rem;
@@ -1105,10 +1139,10 @@ footer {
     text-align: center;
   }
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
   }
   .hero-summary {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   .hero-buttons {
     flex-direction: column;
@@ -1134,6 +1168,9 @@ footer {
   .project-title {
     font-size: 1.4rem;
   }
+  .mobile-menu {
+    top: 60px !important;
+  }
   .toast-notification {
     left: 1rem;
     right: 1rem;
@@ -1148,11 +1185,14 @@ footer {
   .container {
     padding: 0 1rem;
   }
+  .hero-section {
+    padding-top: 5.5rem !important;
+  }
   .brand-name {
-    font-size: 0.92rem;
+    font-size: 0.85rem;
   }
   .brand-role {
-    font-size: 0.65rem;
+    display: none !important; /* Hides subtitle on tiny screens so brand title stays on 1 line */
   }
   .hero-stats-row {
     grid-template-columns: 1fr;
@@ -1168,7 +1208,11 @@ footer {
     text-align: center;
   }
   .contact-card-box {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+  .contact-value, .contact-value a {
+    word-break: break-all !important;
+    font-size: 0.85rem !important;
   }
   .terminal-body {
     font-size: 0.78rem;
