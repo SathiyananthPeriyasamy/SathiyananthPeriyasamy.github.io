@@ -148,7 +148,7 @@ const portfolioData = {
       institution: "Jeivikass Educational Institution",
       period: "June 2016 – April 2017",
       score: "Percentage: 82.8%",
-      highlight: "High distinction in Science and Mathematics."
+      highlight: "Completed SSLC secondary education with 82.8% aggregate score."
     }
   ],
 
