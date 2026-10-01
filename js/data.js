@@ -85,8 +85,7 @@ const portfolioData = {
       icon: "file-code",
       items: [
         "Bash / Shell Scripting",
-        "Python",
-        "JavaScript / Node.js"
+        "Python"
       ]
     }
   ],
