@@ -41,10 +41,12 @@ const portfolioData = {
       ]
     },
     {
-      category: "CI/CD & Automation",
+      category: "CI/CD & DevSecOps",
       icon: "git-branch",
       items: [
         "Jenkins",
+        "GitHub Actions",
+        "SonarQube (SAST)",
         "GitHub Webhooks",
         "Maven",
         "Git & GitHub"
@@ -55,7 +57,9 @@ const portfolioData = {
       icon: "box",
       items: [
         "Docker",
-        "Kubernetes (k8s)"
+        "Docker Compose",
+        "Kubernetes (k8s)",
+        "Nginx Reverse Proxy"
       ]
     },
     {
@@ -81,12 +85,35 @@ const portfolioData = {
       icon: "file-code",
       items: [
         "Bash / Shell Scripting",
-        "Python"
+        "Python",
+        "JavaScript / Node.js"
       ]
     }
   ],
 
   projects: [
+    {
+      id: "netflix-devsecops",
+      title: "Netflix Full-Stack & DevSecOps CI/CD Pipeline",
+      type: "DEVSECOPS & CLOUD ARCHITECTURE",
+      period: "2026",
+      github: "https://github.com/SathiyananthPeriyasamy/Netflix-clone-project",
+      techStack: ["AWS EC2", "Jenkins CI/CD", "SonarQube SAST", "Docker & Compose", "Nginx", "React 18", "Node.js Express", "MongoDB", "GitHub Actions", "Smoke Testing"],
+      summary: "Engineered a production-grade Netflix full-stack application on AWS EC2 featuring multi-stage Docker containerization, SonarQube SAST code quality gates, Nginx reverse proxying, and dual CI/CD pipelines running Jenkins and GitHub Actions.",
+      bullets: [
+        "Architected an automated dual CI/CD pipeline leveraging Jenkins and GitHub Actions with GitHub Webhook integration for instant build triggers upon code commit.",
+        "Integrated SonarQube SAST Server and SonarScanner for static application security testing and automated Quality Gate enforcement prior to deployment.",
+        "Built multi-stage Dockerfiles optimizing frontend (Vite/React to Nginx) and backend (Node.js Alpine) images, orchestrating MongoDB, Express API, and Nginx with Docker Compose.",
+        "Implemented post-deployment automated smoke testing via curl HTTP health checks against production endpoints to guarantee zero-downtime releases on AWS EC2."
+      ],
+      steps: [
+        { step: "01", title: "Git Push & Webhook", desc: "Developer commits code to GitHub, sending instant webhook payloads to Jenkins and GitHub Actions." },
+        { step: "02", title: "SonarQube SAST Gate", desc: "SonarScanner inspects source code for security vulnerabilities, bugs, and enforces Quality Gate PASS status." },
+        { step: "03", title: "Docker Containerize", desc: "Jenkins builds lightweight multi-stage Docker images with no-cache flag and pushes to Docker Hub registry." },
+        { step: "04", title: "AWS EC2 SSH Deploy", desc: "SSHs into production AWS EC2 instance, prunes old cache, pulls fresh images, and restarts stack via Docker Compose." },
+        { step: "05", title: "Live Smoke Testing", desc: "Executes automated HTTP curl health checks on HTTP :80 UI and Express /api/health before completing build." }
+      ]
+    },
     {
       id: "3-tier-web",
       title: "Highly Available 3-Tier Web Architecture",
