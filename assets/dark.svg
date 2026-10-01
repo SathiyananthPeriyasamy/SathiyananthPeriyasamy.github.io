@@ -1,0 +1,480 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Background & Panel Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.65" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed">
+        <animate attributeName="stop-color" values="#7c3aed; #22d3ee; #10b981; #7c3aed" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#22d3ee">
+        <animate attributeName="stop-color" values="#22d3ee; #10b981; #7c3aed; #22d3ee" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#10b981">
+        <animate attributeName="stop-color" values="#10b981; #7c3aed; #22d3ee; #10b981" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee">
+        <animate attributeName="stop-color" values="#22d3ee; #a855f7; #38bdf8; #22d3ee" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#a855f7">
+        <animate attributeName="stop-color" values="#a855f7; #38bdf8; #22d3ee; #a855f7" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.15)" />
+      <stop offset="50%" stop-color="rgba(34,211,238,0.5)" />
+      <stop offset="100%" stop-color="rgba(124,58,237,0.15)" />
+    </linearGradient>
+
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Radial Background Orbs -->
+    <radialGradient id="orbCyan" cx="20%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="rgba(34, 211, 238, 0.18)" />
+      <stop offset="100%" stop-color="rgba(34, 211, 238, 0)" />
+    </radialGradient>
+
+    <radialGradient id="orbPurple" cx="80%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="rgba(124, 58, 237, 0.18)" />
+      <stop offset="100%" stop-color="rgba(124, 58, 237, 0)" />
+    </radialGradient>
+
+    <radialGradient id="orbEmerald" cx="50%" cy="90%" r="35%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.14)" />
+      <stop offset="100%" stop-color="rgba(16, 185, 129, 0)" />
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Clip Paths -->
+    <clipPath id="asciiBoxClip">
+      <rect x="35" y="35" width="410" height="540" rx="20" ry="20" />
+    </clipPath>
+    <clipPath id="terminalClip">
+      <rect x="470" y="35" width="675" height="540" rx="20" ry="20" />
+    </clipPath>
+  </defs>
+
+  <style>
+    /* Global Text Styles */
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* Keyframe Animations */
+    @keyframes floatAscii {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .floating-ascii { animation: floatAscii 6s ease-in-out infinite; }
+
+    @keyframes scanlineAnim {
+      0% { transform: translateY(-50px); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(550px); opacity: 0; }
+    }
+    .scanline { animation: scanlineAnim 4s linear infinite; }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .blink { animation: cursorBlink 0.9s infinite; }
+
+    /* Typing Animation Steps */
+    @keyframes typeRole1 {
+      0%, 20% { opacity: 1; }
+      22%, 100% { opacity: 0; }
+    }
+    @keyframes typeRole2 {
+      0%, 21% { opacity: 0; }
+      25%, 45% { opacity: 1; }
+      47%, 100% { opacity: 0; }
+    }
+    @keyframes typeRole3 {
+      0%, 46% { opacity: 0; }
+      50%, 70% { opacity: 1; }
+      72%, 100% { opacity: 0; }
+    }
+    @keyframes typeRole4 {
+      0%, 71% { opacity: 0; }
+      75%, 95% { opacity: 1; }
+      97%, 100% { opacity: 0; }
+    }
+
+    .role1 { animation: typeRole1 12s infinite; }
+    .role2 { animation: typeRole2 12s infinite; }
+    .role3 { animation: typeRole3 12s infinite; }
+    .role4 { animation: typeRole4 12s infinite; }
+
+    /* Sequential Fade Ins */
+    @keyframes fadeInSeq {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .seq-1 { animation: fadeInSeq 0.6s ease-out 0.2s forwards; }
+    .seq-2 { animation: fadeInSeq 0.6s ease-out 0.4s forwards; }
+    .seq-3 { animation: fadeInSeq 0.6s ease-out 0.6s forwards; }
+    .seq-4 { animation: fadeInSeq 0.6s ease-out 0.8s forwards; }
+    .seq-5 { animation: fadeInSeq 0.6s ease-out 1.0s forwards; }
+    .seq-6 { animation: fadeInSeq 0.6s ease-out 1.2s forwards; }
+
+    /* Interactive Hover Glow for Skill Pills */
+    .skill-pill {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .skill-pill:hover {
+      transform: scale(1.06);
+      filter: url(#glow);
+    }
+
+    /* Floating Particles */
+    @keyframes particleFloat1 {
+      0% { transform: translate(0, 0); opacity: 0.2; }
+      50% { transform: translate(15px, -25px); opacity: 0.8; }
+      100% { transform: translate(0, 0); opacity: 0.2; }
+    }
+    @keyframes particleFloat2 {
+      0% { transform: translate(0, 0); opacity: 0.3; }
+      50% { transform: translate(-20px, -35px); opacity: 0.9; }
+      100% { transform: translate(0, 0); opacity: 0.3; }
+    }
+    .particle1 { animation: particleFloat1 7s ease-in-out infinite; }
+    .particle2 { animation: particleFloat2 9s ease-in-out infinite; }
+  </style>
+
+  <!-- Base Canvas & Background Layer -->
+  <rect width="1180" height="610" rx="24" ry="24" fill="url(#bgGrad)" />
+
+  <!-- Animated Radial Glow Orbs -->
+  <circle cx="200" cy="180" r="300" fill="url(#orbCyan)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 30,20; 0,0" dur="10s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="950" cy="420" r="350" fill="url(#orbPurple)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; -40,-30; 0,0" dur="12s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="600" cy="520" r="280" fill="url(#orbEmerald)">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 20,-20; 0,0" dur="14s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Ambient Floating Particles -->
+  <circle cx="120" cy="100" r="2" fill="#22d3ee" class="particle1" />
+  <circle cx="380" cy="480" r="2.5" fill="#a855f7" class="particle2" />
+  <circle cx="720" cy="90" r="1.8" fill="#10b981" class="particle1" />
+  <circle cx="1080" cy="220" r="2" fill="#38bdf8" class="particle2" />
+  <circle cx="550" cy="350" r="1.5" fill="#f43f5e" class="particle1" />
+
+  <!-- Canvas Subtle Grid Overlay -->
+  <g opacity="0.03" stroke="#ffffff" stroke-width="1">
+    <path d="M0 60 H1180 M0 120 H1180 M0 180 H1180 M0 240 H1180 M0 300 H1180 M0 360 H1180 M0 420 H1180 M0 480 H1180 M0 540 H1180" />
+    <path d="M120 0 V610 M240 0 V610 M360 0 V610 M480 0 V610 M600 0 V610 M720 0 V610 M840 0 V610 M960 0 V610 M1080 0 V610" />
+  </g>
+
+  <!-- =========================================================================
+       LEFT PANEL: Animated Cyber ASCII Portrait & Terminal Avatar (~38%)
+       ========================================================================= -->
+  <g filter="url(#shadow)">
+    <!-- Glass Box Background -->
+    <rect x="35" y="35" width="410" height="540" rx="20" ry="20" fill="url(#panelGrad)" stroke="url(#borderGrad)" stroke-width="1.5" />
+    
+    <!-- Top Header Bar -->
+    <path d="M 35 75 L 445 75" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <circle cx="55" cy="55" r="5.5" fill="#ff5f56" />
+    <circle cx="73" cy="55" r="5.5" fill="#ffbd2e" />
+    <circle cx="91" cy="55" r="5.5" fill="#27c93f" />
+    <text x="240" y="59" fill="#94a3b8" font-size="11" class="font-mono" text-anchor="middle" letter-spacing="1">CYBER_AVATAR // ASCII.SYS</text>
+
+    <!-- Floating ASCII Portrait Container -->
+    <g class="floating-ascii" clip-path="url(#asciiBoxClip)">
+      
+      <!-- High-Tech Cyber Terminal ASCII Portrait -->
+      <g fill="url(#asciiGrad)" font-size="10.5" class="font-mono" font-weight="600" letter-spacing="0.5">
+        <text x="55" y="110">┌───────────────────────────────────┐</text>
+        <text x="55" y="128">│   SATHIYANANTH PERIYASAMY  // 2026 │</text>
+        <text x="55" y="146">│   CLOUD &amp; DEVSECOPS ARCHITECT      │</text>
+        <text x="55" y="164">└───────────────────────────────────┘</text>
+
+        <!-- Cyber Face & Infrastructure ASCII Art -->
+        <text x="75" y="198">          .-----------------.</text>
+        <text x="75" y="216">         /  .-------------.  \</text>
+        <text x="75" y="234">        /  /  [SYS//ONLINE] \  \</text>
+        <text x="75" y="252">       |  |  AWS :: K8S ::   |  |</text>
+        <text x="75" y="270">       |  |  IAC AUTOMATION  |  |</text>
+        <text x="75" y="288">        \  \  &gt; DEPLOY OK!  /  /</text>
+        <text x="75" y="306">         \  '-------------'  /</text>
+        <text x="75" y="324">          '-----------------'</text>
+
+        <!-- ASCII Node Connections -->
+        <text x="65" y="355">     [EC2] ──── (ALB) ──── [EKS]</text>
+        <text x="65" y="375">       │                      │</text>
+        <text x="65" y="395">     [IAC] ─── (JENKINS) ─── [RDS]</text>
+
+        <!-- Matrix Code Status Lines -->
+        <text x="55" y="435" fill="#38bdf8">&gt; STATUS  : ALL_SYSTEMS_OPERATIONAL</text>
+        <text x="55" y="455" fill="#a855f7">&gt; REGION  : AWS ap-south-1 (Mumbai)</text>
+        <text x="55" y="475" fill="#10b981">&gt; UPTIME  : 99.99% MULTI-AZ CLUSTER</text>
+        <text x="55" y="495" fill="#22d3ee">&gt; DEVSECOP: SONARQUBE QUALITY PASS</text>
+      </g>
+
+      <!-- Terminal Prompt Line at Bottom -->
+      <g transform="translate(55, 535)">
+        <text x="0" y="0" fill="#10b981" font-size="12" class="font-mono" font-weight="700">sathiyananth@aws-core:~#</text>
+        <text x="180" y="0" fill="#38bdf8" font-size="12" class="font-mono">./deploy.sh</text>
+        <rect x="265" y="-10" width="8" height="13" fill="#22d3ee" class="blink" />
+      </g>
+
+      <!-- Moving Scanline Effect -->
+      <rect x="35" y="0" width="410" height="4" fill="rgba(34, 211, 238, 0.4)" filter="url(#softGlow)" class="scanline" />
+    </g>
+  </g>
+
+  <!-- =========================================================================
+       RIGHT PANEL: Professional Glassmorphism Terminal (~62%)
+       ========================================================================= -->
+  <g filter="url(#shadow)">
+    <!-- Main Right Panel Glass Box -->
+    <rect x="470" y="35" width="675" height="540" rx="20" ry="20" fill="url(#panelGrad)" stroke="url(#borderGrad)" stroke-width="1.5" />
+
+    <!-- Terminal Window Top Control Bar -->
+    <path d="M 470 75 L 1145 75" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <circle cx="495" cy="55" r="5.5" fill="#ff5f56" />
+    <circle cx="513" cy="55" r="5.5" fill="#ffbd2e" />
+    <circle cx="531" cy="55" r="5.5" fill="#27c93f" />
+    <text x="807" y="59" fill="#94a3b8" font-size="12" class="font-mono" text-anchor="middle" letter-spacing="0.5">bash - sathiyananth@cloud-devops-core:~</text>
+
+    <!-- Terminal Content Area -->
+    <g transform="translate(500, 105)">
+      
+      <!-- Greeting & Name -->
+      <text x="0" y="20" fill="#94a3b8" font-size="16" class="font-mono">Hi 👋</text>
+      <text x="0" y="52" fill="#f8fafc" font-size="28" class="font-sans" font-weight="800" letter-spacing="-0.5">
+        I'm <tspan fill="url(#accentGrad)">Sathiyananth Periyasamy</tspan>
+      </text>
+
+      <!-- Animated Roles (Simulated Typing Cycle) -->
+      <g transform="translate(0, 84)">
+        <text x="0" y="0" fill="#38bdf8" font-size="16" class="font-mono" font-weight="700">&gt;</text>
+        
+        <!-- Role Option 1 -->
+        <g class="role1">
+          <text x="20" y="0" fill="#22d3ee" font-size="16" class="font-mono" font-weight="600">Cloud &amp; DevOps Engineer</text>
+        </g>
+        <!-- Role Option 2 -->
+        <g class="role2">
+          <text x="20" y="0" fill="#a855f7" font-size="16" class="font-mono" font-weight="600">AWS Solutions Architect</text>
+        </g>
+        <!-- Role Option 3 -->
+        <g class="role3">
+          <text x="20" y="0" fill="#10b981" font-size="16" class="font-mono" font-weight="600">Infrastructure &amp; IaC Specialist</text>
+        </g>
+        <!-- Role Option 4 -->
+        <g class="role4">
+          <text x="20" y="0" fill="#f43f5e" font-size="16" class="font-mono" font-weight="600">DevSecOps &amp; CI/CD Practitioner</text>
+        </g>
+
+        <!-- Blinking Cursor -->
+        <rect x="310" y="-13" width="8" height="17" fill="#22d3ee" class="blink" />
+      </g>
+
+      <!-- Divider Hairline -->
+      <line x1="0" y1="104" x2="615" y2="104" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+      <!-- Sequentially Revealed Bio Info Items -->
+      <g transform="translate(0, 130)" font-size="13.5" class="font-sans">
+        
+        <!-- Location -->
+        <g class="seq-1" transform="translate(0, 0)">
+          <text x="0" y="0" fill="#38bdf8" class="font-mono">📍</text>
+          <text x="24" y="-1" fill="#94a3b8">Location:</text>
+          <text x="105" y="-1" fill="#f8fafc" font-weight="600">Tamil Nadu, India</text>
+        </g>
+
+        <!-- Education -->
+        <g class="seq-2" transform="translate(0, 26)">
+          <text x="0" y="0" fill="#a855f7" class="font-mono">🎓</text>
+          <text x="24" y="-1" fill="#94a3b8">Education:</text>
+          <text x="105" y="-1" fill="#f8fafc" font-weight="600">B.E. CSE (8.68 CGPA) — First Class Distinction</text>
+        </g>
+
+        <!-- Focus -->
+        <g class="seq-3" transform="translate(0, 52)">
+          <text x="0" y="0" fill="#10b981" class="font-mono">🎯</text>
+          <text x="24" y="-1" fill="#94a3b8">Focus:</text>
+          <text x="105" y="-1" fill="#f8fafc" font-weight="600">AWS Cloud, Terraform IaC, Docker, K8s &amp; Jenkins</text>
+        </g>
+
+        <!-- Portfolio -->
+        <g class="seq-4" transform="translate(0, 78)">
+          <text x="0" y="0" fill="#f43f5e" class="font-mono">🌐</text>
+          <text x="24" y="-1" fill="#94a3b8">Portfolio:</text>
+          <text x="105" y="-1" fill="#22d3ee" font-weight="600">sathiyananthperiyasamy.github.io</text>
+        </g>
+
+        <!-- Email -->
+        <g class="seq-5" transform="translate(0, 104)">
+          <text x="0" y="0" fill="#eab308" class="font-mono">✉️</text>
+          <text x="24" y="-1" fill="#94a3b8">Contact:</text>
+          <text x="105" y="-1" fill="#f8fafc" font-weight="600">sathiyananthp@gmail.com</text>
+        </g>
+      </g>
+
+      <!-- =====================================================================
+           SKILLS SECTION: Glowing Pills Grid
+           ===================================================================== -->
+      <g transform="translate(0, 275)">
+        <text x="0" y="0" fill="#94a3b8" font-size="12" class="font-mono" letter-spacing="1">KEY_SKILLS &amp; TECHNOLOGIES</text>
+        
+        <!-- Row 1 Pills -->
+        <g transform="translate(0, 15)">
+          <!-- AWS -->
+          <g class="skill-pill" transform="translate(0, 0)">
+            <rect x="0" y="0" width="62" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(249,115,22,0.4)" stroke-width="1" />
+            <text x="31" y="18" fill="#f97316" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">AWS</text>
+          </g>
+          <!-- Docker -->
+          <g class="skill-pill" transform="translate(70, 0)">
+            <rect x="0" y="0" width="76" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+            <text x="38" y="18" fill="#38bdf8" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Docker</text>
+          </g>
+          <!-- Kubernetes -->
+          <g class="skill-pill" transform="translate(154, 0)">
+            <rect x="0" y="0" width="102" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(59,130,246,0.4)" stroke-width="1" />
+            <text x="51" y="18" fill="#60a5fa" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Kubernetes</text>
+          </g>
+          <!-- Terraform -->
+          <g class="skill-pill" transform="translate(264, 0)">
+            <rect x="0" y="0" width="92" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(168,85,247,0.4)" stroke-width="1" />
+            <text x="46" y="18" fill="#c084fc" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Terraform</text>
+          </g>
+          <!-- Ansible -->
+          <g class="skill-pill" transform="translate(364, 0)">
+            <rect x="0" y="0" width="78" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(244,63,94,0.4)" stroke-width="1" />
+            <text x="39" y="18" fill="#fb7185" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Ansible</text>
+          </g>
+          <!-- Jenkins -->
+          <g class="skill-pill" transform="translate(450, 0)">
+            <rect x="0" y="0" width="78" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(234,179,8,0.4)" stroke-width="1" />
+            <text x="39" y="18" fill="#facc15" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Jenkins</text>
+          </g>
+          <!-- SonarQube -->
+          <g class="skill-pill" transform="translate(536, 0)">
+            <rect x="0" y="0" width="80" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+            <text x="40" y="18" fill="#22d3ee" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">SonarQube</text>
+          </g>
+        </g>
+
+        <!-- Row 2 Pills -->
+        <g transform="translate(0, 50)">
+          <!-- Linux -->
+          <g class="skill-pill" transform="translate(0, 0)">
+            <rect x="0" y="0" width="65" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(250,204,21,0.4)" stroke-width="1" />
+            <text x="32.5" y="18" fill="#facc15" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Linux</text>
+          </g>
+          <!-- Python -->
+          <g class="skill-pill" transform="translate(73, 0)">
+            <rect x="0" y="0" width="74" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+            <text x="37" y="18" fill="#38bdf8" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Python</text>
+          </g>
+          <!-- Bash -->
+          <g class="skill-pill" transform="translate(155, 0)">
+            <rect x="0" y="0" width="60" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(74,222,128,0.4)" stroke-width="1" />
+            <text x="30" y="18" fill="#4ade80" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Bash</text>
+          </g>
+          <!-- Nginx -->
+          <g class="skill-pill" transform="translate(223, 0)">
+            <rect x="0" y="0" width="64" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+            <text x="32" y="18" fill="#10b981" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Nginx</text>
+          </g>
+          <!-- Git & GitHub -->
+          <g class="skill-pill" transform="translate(295, 0)">
+            <rect x="0" y="0" width="100" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(244,63,94,0.4)" stroke-width="1" />
+            <text x="50" y="18" fill="#f43f5e" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">Git &amp; GitHub</text>
+          </g>
+          <!-- CI/CD Pipelines -->
+          <g class="skill-pill" transform="translate(403, 0)">
+            <rect x="0" y="0" width="120" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(168,85,247,0.4)" stroke-width="1" />
+            <text x="60" y="18" fill="#c084fc" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">CI/CD Pipelines</text>
+          </g>
+          <!-- AWS EC2/VPC -->
+          <g class="skill-pill" transform="translate(531, 0)">
+            <rect x="0" y="0" width="85" height="28" rx="8" fill="url(#pillGrad)" stroke="rgba(249,115,22,0.4)" stroke-width="1" />
+            <text x="42.5" y="18" fill="#f97316" font-size="11" class="font-mono" font-weight="700" text-anchor="middle">EC2 / VPC</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- =====================================================================
+           SOCIAL BUTTONS & FOOTER BADGES
+           ===================================================================== -->
+      <g transform="translate(0, 395)">
+        <line x1="0" y1="0" x2="615" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+        
+        <g transform="translate(0, 18)">
+          <!-- GitHub Icon Button -->
+          <g class="skill-pill" transform="translate(0, 0)">
+            <rect x="0" y="0" width="125" height="32" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+            <path d="M 18 20 C 13.5 22 13 18 11 18 M 15 24 V 20 A 4.8 4.8 0 0 0 14 16.5 C 17 16.5 20 14.5 20 11 C 20.08 9.75 19.73 8.52 19 7.5 C 19.28 6.35 19.28 5.15 19 4 C 19 4 18 4 16 5.5 C 13.36 5 10.64 5 8 5 C 6 4 5 4 5 4 C 4.7 5.15 4.7 6.35 5 7.5 C 4.27 8.52 3.92 9.75 4 11 C 4 14.5 7 16.5 10 16.5 C 9.61 16.99 9.32 17.55 9.15 18.15 C 8.98 18.75 8.93 19.38 9 20 V 24" fill="none" stroke="#f8fafc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <text x="70" y="21" fill="#f8fafc" font-size="12" class="font-sans" font-weight="600">GitHub</text>
+          </g>
+
+          <!-- LinkedIn Icon Button -->
+          <g class="skill-pill" transform="translate(140, 0)">
+            <rect x="0" y="0" width="135" height="32" rx="8" fill="rgba(10,102,194,0.12)" stroke="rgba(10,102,194,0.4)" stroke-width="1" />
+            <path d="M 18 8 H 22 V 24 H 18 Z M 8 8 H 12 V 24 H 8 Z M 10 3 A 2.5 2.5 0 1 1 9.9 3 Z M 18 14 C 18 12 19.5 11.5 21 11.5 C 22.5 11.5 23 12.5 23 14 V 24 H 19 V 15 C 19 14.2 18.5 14 18 14 Z" fill="#0077b5" />
+            <text x="80" y="21" fill="#38bdf8" font-size="12" class="font-sans" font-weight="600">LinkedIn</text>
+          </g>
+
+          <!-- Live Portfolio Button -->
+          <g class="skill-pill" transform="translate(290, 0)">
+            <rect x="0" y="0" width="145" height="32" rx="8" fill="rgba(34,211,238,0.12)" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+            <circle cx="18" cy="16" r="6" fill="none" stroke="#22d3ee" stroke-width="1.5" />
+            <path d="M 12 16 H 24 M 18 10 A 9 9 0 0 1 18 22 A 9 9 0 0 1 18 10" fill="none" stroke="#22d3ee" stroke-width="1.2" />
+            <text x="85" y="21" fill="#22d3ee" font-size="12" class="font-sans" font-weight="600">Live Portfolio</text>
+          </g>
+
+          <!-- Email Button -->
+          <g class="skill-pill" transform="translate(450, 0)">
+            <rect x="0" y="0" width="115" height="32" rx="8" fill="rgba(244,63,94,0.12)" stroke="rgba(244,63,94,0.4)" stroke-width="1" />
+            <rect x="14" y="10" width="16" height="12" rx="2" fill="none" stroke="#fb7185" stroke-width="1.5" />
+            <path d="M 14 11 L 22 17 L 30 11" fill="none" stroke="#fb7185" stroke-width="1.5" />
+            <text x="70" y="21" fill="#fb7185" font-size="12" class="font-sans" font-weight="600">Email Me</text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

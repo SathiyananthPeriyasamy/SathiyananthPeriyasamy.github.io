@@ -1,9 +1,19 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/light.svg">
+    <img alt="Sathiyananth Periyasamy - Cloud &amp; DevOps Architecture Hero Banner" src="assets/dark.svg" width="100%">
+  </picture>
+</div>
+
+<br />
+
 # Hi there, I'm Sathiyananth Periyasamy 👋
 
 ### ☁️ Cloud & DevOps Engineer | AWS // Infrastructure as Code // Linux & IT Infra Systems
 
 [![Portfolio](https://img.shields.io/badge/Live_Portfolio-00F2FE?style=for-the-badge&logo=google-chrome&logoColor=black)](https://sathiyananthperiyasamy.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sathiyananth-periyasamy)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sathiyananthp)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sathiyananthp@gmail.com)
 
 ---
