@@ -195,5 +195,41 @@ const portfolioData = {
       badge: "AWS CLOUD PRACTITIONER",
       desc: "Validated fundamental understanding of AWS Cloud concepts, security, compliance, architecture, billing, and core cloud services."
     }
+  ],
+
+  resumes: [
+    {
+      id: "cloud",
+      title: "AWS Cloud Engineer Resume",
+      role: "AWS Cloud Architect / Cloud Engineer",
+      icon: "☁️",
+      badge: "AWS CLOUD SPECIALIST",
+      file: "assets/Sathiyananth-Cloud.pdf",
+      filename: "Sathiyananth-Cloud.pdf",
+      description: "Specialized resume tailored for AWS Cloud Infrastructure, Multi-AZ VPC Architectures, EC2 Auto Scaling, RDS MySQL, ALB, IAM Security, and CloudWatch Monitoring.",
+      highlights: ["AWS EC2, VPC & Subnets", "ALB & Auto Scaling", "RDS MySQL Isolation", "CloudWatch & SNS Alarms"]
+    },
+    {
+      id: "devops",
+      title: "DevOps & CI/CD Engineer Resume",
+      role: "DevOps Engineer / DevSecOps Specialist",
+      icon: "🚀",
+      badge: "DEVOPS & PIPELINE AUTOMATION",
+      file: "assets/Sathiyananth-Devops.pdf",
+      filename: "Sathiyananth-Devops.pdf",
+      description: "Specialized resume tailored for Jenkins CI/CD Automation, Docker Containerization, Kubernetes Orchestration, Terraform IaC, Ansible, SonarQube SAST, and GitHub Actions.",
+      highlights: ["Jenkins & GitHub Actions", "Docker & Kubernetes", "Terraform & Ansible IaC", "SonarQube SAST Quality Gates"]
+    },
+    {
+      id: "linux",
+      title: "Linux Administrator Resume",
+      role: "Linux Systems Admin / IT Infrastructure",
+      icon: "🐧",
+      badge: "LINUX & INFRASTRUCTURE",
+      file: "assets/Sathiyananth-Linux.pdf",
+      filename: "Sathiyananth-Linux.pdf",
+      description: "Specialized resume tailored for Linux Administration (Ubuntu/Amazon Linux), Bash Scripting, Web Server Management (Nginx), TCP/IP Networking, and System Hardening.",
+      highlights: ["Ubuntu & Amazon Linux Admin", "Bash Shell Scripting", "Nginx Reverse Proxy", "DNS, SSH & Firewall Rules"]
+    }
   ]
 };

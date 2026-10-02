@@ -51,13 +51,9 @@
         <li><a href="#overview" class="nav-link active">OVERVIEW</a></li>
         <li><a href="#skills" class="nav-link">SKILLS</a></li>
         <li><a href="#architectures" class="nav-link">ARCHITECTURES</a></li>
+        <li><a href="#resumes" class="nav-link">RESUMES</a></li>
         <li><a href="#certifications" class="nav-link">CERTIFICATIONS</a></li>
         <li><a href="#contact" class="nav-link">CONTACT</a></li>
-        <li>
-          <a href="assets/Sathiyananth_Periyasamy_Resume.pdf" target="_blank" rel="noopener" class="nav-link nav-resume-link" title="Open Resume PDF in new tab">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px; margin-right:4px;"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></svg>RESUME ↗
-          </a>
-        </li>
       </ul>
 
       <div class="nav-actions">
@@ -79,9 +75,10 @@
     <a href="#overview" class="mobile-menu-link">OVERVIEW</a>
     <a href="#skills" class="mobile-menu-link">SKILLS</a>
     <a href="#architectures" class="mobile-menu-link">ARCHITECTURES</a>
+    <a href="#resumes" class="mobile-menu-link">RESUMES</a>
     <a href="#certifications" class="mobile-menu-link">CERTIFICATIONS</a>
     <a href="#contact" class="mobile-menu-link">CONTACT</a>
-    <a href="assets/Sathiyananth_Periyasamy_Resume.pdf" target="_blank" rel="noopener" class="btn-btn-nav btn-outline" style="text-align:center;">📄 VIEW RESUME</a>
+    <a href="#resumes" class="btn-btn-nav btn-outline" style="text-align:center;">📄 VIEW 3 RESUMES</a>
     <a href="#contact" class="btn-btn-nav btn-primary" style="text-align:center;">HIRE ME</a>
   </div>
 
@@ -105,8 +102,8 @@
               Loading summary...
             </p>
             <div class="hero-buttons">
-              <a href="assets/Sathiyananth_Periyasamy_Resume.pdf" target="_blank" rel="noopener" class="btn-primary btn-lg">
-                📄 VIEW RESUME (PDF)
+              <a href="#resumes" class="btn-primary btn-lg">
+                📄 VIEW TARGETED RESUMES (3 ROLES)
               </a>
               <a href="#architectures" class="btn-outline btn-lg">
                 EXPLORE ARCHITECTURES 
@@ -197,6 +194,48 @@
 
         <div id="projects-container">
           <!-- Dynamically rendered project cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Role-Specific Targeted Resumes (Live Viewer)
+         ========================================================================== -->
+    <section id="resumes" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge">// CURRICULUM VITAE & TARGETED RESUMES</div>
+          <h2 class="section-title">Targeted <span class="highlight">Role-Specific Resumes</span></h2>
+          <p class="section-subtitle">
+            Select and preview any of the 3 specialized resumes optimized for AWS Cloud Engineering, DevOps & CI/CD Pipelines, or Linux Systems Administration. View directly inline or download the official PDFs.
+          </p>
+        </div>
+
+        <!-- Resume Selector Cards -->
+        <div class="resume-tabs-grid" id="resume-tabs-container">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+
+        <!-- Live Resume Viewer Card -->
+        <div class="resume-viewer-card reveal" id="resume-viewer-card">
+          <div class="resume-toolbar">
+            <div class="resume-toolbar-info">
+              <span class="resume-active-badge" id="resume-active-badge">☁️ AWS CLOUD SPECIALIST</span>
+              <h3 class="resume-active-title" id="resume-active-title">AWS Cloud Engineer Resume</h3>
+            </div>
+            <div class="resume-toolbar-actions">
+              <a href="assets/Sathiyananth-Cloud.pdf" target="_blank" rel="noopener" id="resume-open-link" class="btn-outline btn-sm">
+                ↗ OPEN IN NEW TAB
+              </a>
+              <a href="assets/Sathiyananth-Cloud.pdf" download id="resume-download-link" class="btn-primary btn-sm">
+                📄 DOWNLOAD PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="resume-iframe-wrapper">
+            <iframe id="resume-frame" src="assets/Sathiyananth-Cloud.pdf" title="Sathiyananth Periyasamy Resume Viewer" width="100%" height="750px"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -302,8 +341,8 @@
             </div>
 
             <div style="margin-top: 1.5rem;">
-              <a href="assets/Sathiyananth_Periyasamy_Resume.pdf" target="_blank" rel="noopener" class="btn-outline btn-lg" style="width: 100%; justify-content: center;">
-                📄 DOWNLOAD RESUME (PDF)
+              <a href="#resumes" class="btn-outline btn-lg" style="width: 100%; justify-content: center;">
+                📄 VIEW &amp; DOWNLOAD 3 TARGETED RESUMES
               </a>
             </div>
           </div>

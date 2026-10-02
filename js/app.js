@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStats();
   renderSkills();
   renderProjects();
+  renderResumes();
   renderCertificationsAndEdu();
   initNavigation();
   initContactForm();
@@ -179,6 +180,56 @@ function renderProjects() {
       </div>
     `;
   }).join('');
+}
+
+/* Render Resumes & Live Viewer */
+function renderResumes() {
+  const container = document.getElementById('resume-tabs-container');
+  if (!container || !portfolioData.resumes) return;
+
+  const resumes = portfolioData.resumes;
+
+  container.innerHTML = resumes.map((r, idx) => `
+    <div class="resume-tab-card ${idx === 0 ? 'active' : ''}" data-id="${r.id}">
+      <div class="resume-card-header">
+        <span class="resume-card-icon">${r.icon}</span>
+        <span class="resume-card-badge">${r.badge}</span>
+      </div>
+      <h3 class="resume-card-title">${r.title}</h3>
+      <p class="resume-card-desc">${r.description}</p>
+      <div class="resume-card-tags">
+        ${r.highlights.map(h => `<span class="resume-tag">${h}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // Handle click to switch active resume in viewer
+  const tabCards = container.querySelectorAll('.resume-tab-card');
+  tabCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-id');
+      const selected = resumes.find(r => r.id === id);
+      if (!selected) return;
+
+      tabCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      const badgeEl = document.getElementById('resume-active-badge');
+      const titleEl = document.getElementById('resume-active-title');
+      const openEl = document.getElementById('resume-open-link');
+      const downloadEl = document.getElementById('resume-download-link');
+      const frameEl = document.getElementById('resume-frame');
+
+      if (badgeEl) badgeEl.innerText = `${selected.icon} ${selected.badge}`;
+      if (titleEl) titleEl.innerText = selected.title;
+      if (openEl) openEl.href = selected.file;
+      if (downloadEl) {
+        downloadEl.href = selected.file;
+        downloadEl.setAttribute('download', selected.filename);
+      }
+      if (frameEl) frameEl.src = selected.file;
+    });
+  });
 }
 
 /* Render Certifications & Education */
